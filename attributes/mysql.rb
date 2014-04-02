@@ -1,16 +1,8 @@
 # # # # #
 # mysql #
 # # # # #
-node.default['mysql']['client']['packages'] = [
-	'build-essential',
-	'libmysqlclient-dev'
-]
-
-node.set_unless['mysql']['server_debian_password'] = node['dop_mysql']['databag']['debian']
-node.set_unless['mysql']['server_root_password']   = node['dop_mysql']['databag']['root']
-node.set_unless['mysql']['server_repl_password']   = node['dop_mysql']['databag']['replication']
-
-node.default['mysql']['bind_address'] = "127.0.0.1"
+default['mysql']['server_debian_password'] = node['dop_mysql']['databag']['debian']
+default['mysql']['server_root_password']   = node['dop_mysql']['databag']['root']
 
 node.default['mysql']['my_cnf']['client']['port'] = node['mysql']['port']
 node.default['mysql']['my_cnf']['client']['socket'] = node['mysql']['socket']
