@@ -12,13 +12,13 @@ end
 %w{ 
   mysql
   database
+  automysqlbackup
   }.each do |ressource|
   depends ressource
 end
 
 %w{ 
   percona
-  automysqlbackup
   phpmyadmin
   }.each do |ressource|
   recommends ressource
