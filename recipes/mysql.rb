@@ -2,6 +2,14 @@
 # Cookbook Name:: dop_mysql
 # Recipe:: mysql
 #
+
+directory "/var/run/mysql" do
+  owner "mysql"
+  group "mysql"
+  recursive true
+  action :create
+end
+
 include_recipe "mysql::server"
 include_recipe "mysql::client"
 include_recipe "database"
