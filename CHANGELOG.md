@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dop_mysql.
 
+## 2.0.2:
+
+* fix missing attribute confd_dir
+* bind to loop-back interface 127.0.0.1 by default
+
 ## 2.0.1:
 
 * fix existence of /var/run/mysql on debian systems so that MySQL 5.6 can start up properly

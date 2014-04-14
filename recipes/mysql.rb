@@ -17,9 +17,9 @@ include_recipe "database::mysql"
 
 # configure mysql
 template "#{node['mysql']['confd_dir']}/custom.cnf" do
-  source "my.cnf.erb"
+  source "custom.cnf.erb"
   variables(
-  	:mysql => node['mysql']['my_cnf']
+    :mysql => node['mysql']['custom_cnf']
   )
   owner "mysql"
   group "mysql"
