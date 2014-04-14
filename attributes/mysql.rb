@@ -6,7 +6,7 @@ default['mysql']['server_root_password'] = node['dop_mysql']['databag']['root']
 
 default['mysql']['confd_dir'] = "/etc/mysql/conf.d"
 
-default['mysql']['custom_cnf']['bind-address'] = "127.0.0.1"
+default['mysql']['custom_cnf']['mysqld']['bind-address'] = "127.0.0.1"
 
 default['mysql']['tunable']['key_buffer_size'] = "8M"
 default['mysql']['tunable']['max_allowed_packet'] = "32M"
