@@ -11,6 +11,7 @@ version '2.1.0'
 end
 
 %w(
+  dop_base
   mysql
   database
   automysqlbackup

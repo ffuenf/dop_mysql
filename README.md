@@ -15,6 +15,7 @@ Dependencies
 
 This cookbook depends on the following community cookbooks.
 
+* dop_base
 * mysql
 * database
 * automysqlbackup

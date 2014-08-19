@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+include_recipe 'dop_base'
+
 include_recipe 'dop_mysql::percona' if node['dop_mysql']['flavor'] == 'percona'
 include_recipe 'dop_mysql::mysql' if node['dop_mysql']['flavor'] == 'mysql'
 include_recipe 'database'

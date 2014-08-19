@@ -18,6 +18,8 @@ task default: :test
 begin
   desc 'Create encrypted databags'
   task :create_databags do
+    system('knife solo data bag create users deploy --data-bag-path ./test/integration/default/data_bags/ --json-file .data_bags/users_deploy.json --secret-file .data_bags/insecure_databag_secret')
+    system('knife solo data bag create users service --data-bag-path ./test/integration/default/data_bags/ --json-file .data_bags/users_service.json --secret-file .data_bags/insecure_databag_secret')
     system('knife solo data bag create passwords automysqlbackup --data-bag-path ./test/integration/default/data_bags/ --json-file .data_bags/passwords_automysqlbackup.json --secret-file .data_bags/insecure_databag_secret')
     system('knife solo data bag create passwords mysql --data-bag-path ./test/integration/default/data_bags/ --json-file .data_bags/passwords_mysql.json --secret-file .data_bags/insecure_databag_secret')
     system('knife solo data bag create passwords system --data-bag-path ./test/integration/default/data_bags/ --json-file .data_bags/passwords_system.json --secret-file .data_bags/insecure_databag_secret')
