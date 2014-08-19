@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_mysql.
 
+## 2.1.0:
+
+* update/integrate testsuites: foodcritic, rubocop, travis-ci
+
 ## 2.0.2:
 
 * fix missing attribute confd_dir

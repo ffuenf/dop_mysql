@@ -3,26 +3,26 @@
 # Recipe:: mysql
 #
 
-directory "/var/run/mysql" do
-  owner "mysql"
-  group "mysql"
+directory '/var/run/mysql' do
+  owner 'mysql'
+  group 'mysql'
   recursive true
   action :create
 end
 
-include_recipe "mysql::server"
-include_recipe "mysql::client"
-include_recipe "database"
-include_recipe "database::mysql"
+include_recipe 'mysql::server'
+include_recipe 'mysql::client'
+include_recipe 'database'
+include_recipe 'database::mysql'
 
 # configure mysql
 template "#{node['mysql']['confd_dir']}/custom.cnf" do
-  source "custom.cnf.erb"
+  source 'custom.cnf.erb'
   variables(
-    :mysql => node['mysql']['custom_cnf']
+    mysql: node['mysql']['custom_cnf']
   )
-  owner "mysql"
-  group "mysql"
+  owner 'mysql'
+  group 'mysql'
   mode 0644
-  notifies :restart, "mysql_service[default]"
+  notifies :restart, 'mysql_service[default]'
 end
