@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dop_mysql.
 
+## 2.1.1:
+
+* make sure mysql is running (fix for ubuntu compatibility)
+* update/integrate testsuites: foodcritic, rubocop, travis-ci
+
 ## 2.1.0:
 
 * update/integrate testsuites: foodcritic, rubocop, travis-ci
