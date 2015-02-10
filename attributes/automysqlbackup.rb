@@ -3,7 +3,6 @@
 # # # # # # # # # #
 default['automysqlbackup']['databag'] = Chef::EncryptedDataBagItem.load('passwords', 'automysqlbackup')
 
-default['automysqlbackup']['enable'] = true
 default['automysqlbackup']['bin_path'] = '/usr/bin/'
 default['automysqlbackup']['backup_dir'] = "#{node['users']['service']['home']}/mysqlbackups"
 default['automysqlbackup']['config'] = node['dop_base']['hosts']['hostname']

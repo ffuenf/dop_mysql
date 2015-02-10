@@ -5,10 +5,6 @@
 
 include_recipe 'automysqlbackup'
 
-service 'mysql' do
-  action :start
-end
-
 # create automysqlbackup directory
 directory "#{node['users']['service']['home']}/mysqlbackups" do
   owner node['users']['service']['name']

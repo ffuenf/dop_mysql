@@ -1,14 +1,14 @@
 language: ruby
+bundler_args: --without kitchen_vagrant --without development
+sudo: false
 rvm:
 - 2.2.0
-before_script:
-- bundle exec berks vendor
+before_install:
+- echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/id_do.base64
+- cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_do.pem
 script:
 - bundle exec rubocop
 - bundle exec foodcritic -f any .
-branches:
-  only:
-  - master
 notifications:
   slack:
     secure: YhTw6Fhgf8Z4iFl6aEjpPy+Hm6XLbPKmlUVTx74XRWRXGUzdHff2sClu8dRG7WjYbWAEF+Vc9hMz0Telp1IjjvNTg9Aqqle5PhYbyUn2q623eSanWmpbSn5ev5saJnL3J8Fwh6HnbJjndQvgBwPTOYRazVxbecVchybKzEDMMMI=

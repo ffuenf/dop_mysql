@@ -3,26 +3,33 @@
 # Recipe:: mysql
 #
 
-directory '/var/run/mysql' do
-  owner 'mysql'
-  group 'mysql'
-  recursive true
-  action :create
+node.default['mysql']['server_root_password'] = node['dop_mysql']['databag']['root']
+
+mysql2_chef_gem 'default' do
+  action :install
 end
 
-include_recipe 'mysql::server'
-include_recipe 'mysql::client'
-include_recipe 'database'
-include_recipe 'database::mysql'
+mysql_service 'default' do
+  bind_address node['mysql']['bind_address']
+  port node['mysql']['port']
+  package_name node['mysql']['dotdeb']['server']['name']
+  package_version node['mysql']['dotdeb']['server']['version']
+  initial_root_password node['dop_mysql']['databag']['root']
+  action [:create, :start]
+end
 
-# configure mysql
-template "#{node['mysql']['confd_dir']}/custom.cnf" do
+mysql_config 'custom' do
+  instance 'default'
   source 'custom.cnf.erb'
   variables(
     mysql: node['mysql']['custom_cnf']
   )
-  owner 'mysql'
-  group 'mysql'
-  mode 0644
   notifies :restart, 'mysql_service[default]'
+  action :create
+end
+
+mysql_client 'default' do
+  package_name node['mysql']['dotdeb']['client']['name']
+  package_version node['mysql']['dotdeb']['client']['version']
+  action :create
 end

@@ -39,10 +39,7 @@ We assume to use an encrypted databag which holds sensitive user information wit
 ```
 { 
   "id": "mysql", 
-  "root": "insecurepassword",
-  "debian": "insecurepassword",
-  "backup": "insecurepassword",
-  "replication": "insecurepassword"
+  "root": "insecurepassword"
 }
 { 
   "id": "automysqlbackup", 

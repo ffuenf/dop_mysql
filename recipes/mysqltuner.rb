@@ -6,7 +6,7 @@
 mysqltuner_src_filename = 'mysqltuner.pl'
 mysqltuner_src_filepath = "#{Chef::Config['file_cache_path']}/#{mysqltuner_src_filename}"
 remote_file mysqltuner_src_filepath do
-  source node['mysqltuner']['source']
+  source node['mysql']['mysqltuner']['source']
 end
 bash 'install mysqltuner' do
   cwd ::File.dirname(mysqltuner_src_filepath)
