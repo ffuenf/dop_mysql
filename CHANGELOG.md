@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_mysql.
 
+## 3.0.1:
+
+* matchers for ubuntu compatibility
+
 ## 3.0.0:
 
 * major update to match refactored mysql/database cookbooks
