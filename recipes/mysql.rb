@@ -13,6 +13,7 @@ mysql_service 'default' do
   bind_address node['mysql']['bind_address']
   port node['mysql']['port']
   initial_root_password node['dop_mysql']['databag']['root']
+  version node['mysql']['version']
   action [:create, :start]
 end
 
