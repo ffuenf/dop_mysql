@@ -4,13 +4,14 @@ license 'Apache 2.0'
 description 'installs/configures dop_mysql'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 name 'dop_mysql'
-version '3.0.1'
+version '3.1.0'
 
 %w(debian ubuntu).each do |os|
   supports os
 end
 
 %w(
+  apt
   dop_base
   dotdeb
   mysql
@@ -20,10 +21,4 @@ end
   chef-sugar
 ).each do |ressource|
   depends ressource
-end
-
-%w(
-  phpmyadmin
-).each do |ressource|
-  recommends ressource
 end
