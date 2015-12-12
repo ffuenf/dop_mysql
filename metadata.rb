@@ -21,9 +21,3 @@ end
 ).each do |ressource|
   depends ressource
 end
-
-%w(
-  phpmyadmin
-).each do |ressource|
-  recommends ressource
-end
