@@ -26,6 +26,7 @@ database_connection = {
 # create the automysqlbackup database user
 mysql_database_user database_user do
   connection database_connection
+  host database_host
   password database_password
   action :create
 end
