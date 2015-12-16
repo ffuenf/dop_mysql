@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_mysql.
 
+## 3.0.3:
+
+* fix missing host in automysqlbackup setup
+
 ## 3.0.2:
 
 ## 3.0.1:

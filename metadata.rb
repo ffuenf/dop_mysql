@@ -4,7 +4,7 @@ license 'Apache 2.0'
 description 'installs/configures dop_mysql'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 name 'dop_mysql'
-version '3.0.2'
+version '3.0.3'
 
 %w(debian ubuntu).each do |os|
   supports os
