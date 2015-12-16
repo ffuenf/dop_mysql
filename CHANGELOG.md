@@ -6,6 +6,12 @@ This file is used to list changes made in each version of dop_mysql.
 
 * support mysql 5.7 on ubuntu 14.04 (Work-in-progress)
 
+## 3.0.3:
+
+* fix missing host in automysqlbackup setup
+
+## 3.0.2:
+
 ## 3.0.1:
 
 * matchers for ubuntu compatibility
