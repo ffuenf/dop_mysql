@@ -1,7 +1,3 @@
-def abspath(f)
-  File.expand_path("../#{f}", __FILE__)
-end
-
 Vagrant.configure('2') do |config|
   # vagrant-omnibus
   if Vagrant.has_plugin?('vagrant-omnibus')
@@ -26,7 +22,7 @@ Vagrant.configure('2') do |config|
   config.vm.network 'private_network', ip: '10.0.0.50'
 
   # basebox
-  config.vm.box = 'ffuenf/debian-7.8.0-amd64'
+  config.vm.box = 'ffuenf/debian-7.9.0-amd64'
 
   # virtualbox options
   config.vm.provider 'virtualbox' do |v|
@@ -40,14 +36,10 @@ Vagrant.configure('2') do |config|
   # Configure Chef Solo provisioner
   config.vm.provision 'chef_solo' do |chef|
     chef.cookbooks_path = 'vendor/cookbooks'
-    # Load node attributes and run list from a JSON file
-    json_file =
-    if File.exist?(abspath('Vagrantfile.chef.json'))
-      abspath('Vagrantfile.chef.json')
-    end
-    chef.json = JSON.parse(IO.read(json_file))
-
-    # Configure Chef output
-    chef.custom_config_path = 'Vagrantfile.config'
+    chef.json = {
+      'run_list' => [
+        'recipe[dop_mysql::default]'
+      ]
+    } 
   end
 end
