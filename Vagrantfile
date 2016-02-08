@@ -40,6 +40,6 @@ Vagrant.configure('2') do |config|
       'run_list' => [
         'recipe[dop_mysql::default]'
       ]
-    } 
+    }
   end
 end
