@@ -3,10 +3,17 @@
 # Recipe:: automysqlbackup
 #
 
+node.set['automysqlbackup']['databag'] = Chef::EncryptedDataBagItem.load('passwords', 'automysqlbackup')
+node.set['automysqlbackup']['backup_dir'] = "#{node['users']['service']['home']}/mysqlbackups"
+node.set['automysqlbackup']['user'] = node['users']['service']['name']
+node.set['automysqlbackup']['group'] = node['users']['service']['name']
+node.set['automysqlbackup']['encrypt_password'] = node['automysqlbackup']['databag']['encrypt_password']
+node.set['automysqlbackup']['server_root_password'] = node['dop_mysql']['databag']['root']
+
 include_recipe 'automysqlbackup'
 
 # create automysqlbackup directory
-directory "#{node['users']['service']['home']}/mysqlbackups" do
+directory node['automysqlbackup']['backup_dir'] do
   owner node['users']['service']['name']
   group node['users']['service']['group']
   action :create

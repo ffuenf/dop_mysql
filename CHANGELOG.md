@@ -2,9 +2,9 @@
 
 This file is used to list changes made in each version of dop_mysql.
 
-## 3.1.0 (Unreleased)
+## 3.1.0 (February 18, 2016)
 
-* support mysql 5.7 on ubuntu 14.04 (Work-in-progress)
+* rewrite setting of encrypted databag attributes (compatibility to chef 12.7.2)
 
 ## 3.0.3:
 

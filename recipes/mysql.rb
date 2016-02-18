@@ -3,16 +3,8 @@
 # Recipe:: mysql
 #
 
-node.default['mysql']['server_root_password'] = node['dop_mysql']['databag']['root']
-
-include_recipe 'apt'
-apt_repository 'php' do
-  uri node['mysql']['apt']['repo_uri']
-  distribution node['lsb']['codename']
-  components node['mysql']['apt']['components']
-  keyserver 'keyserver.ubuntu.com'
-  key '5072E1F5'
-end
+node.set['dop_mysql']['databag'] = Chef::EncryptedDataBagItem.load('passwords', 'mysql')
+node.set['mysql']['server_root_password'] = node['dop_mysql']['databag']['root']
 
 mysql2_chef_gem 'default' do
   action :install

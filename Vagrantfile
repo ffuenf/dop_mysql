@@ -32,24 +32,13 @@ Vagrant.configure('2') do |config|
     v.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
   end
 
-  config.vm.provider 'digital_ocean' do |provider, override|
-    override.ssh.private_key_path = ENV['DIGITALOCEAN_SSH_KEY_PATH']
-    override.ssh.username = 'root'
-    override.vm.box = 'digital_ocean'
-    override.vm.box_url = 'https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box'
-    provider.token = ENV['DIGITALOCEAN_ACCESS_TOKEN']
-    provider.image = 'ubuntu-14-04-x64'
-    provider.region = 'ams3'
-    provider.size = '512mb'
-    provider.ipv6 = true
-  end
-
   # Configure Chef Solo provisioner
   config.vm.provision 'chef_solo' do |chef|
-    chef.provisioning_path = '/tmp/vagrant-chef-solo'
-    chef.file_cache_path = chef.provisioning_path
-    chef.cookbooks_path = ['.chef/cookbooks']
-    chef.add_recipe 'dop_mysql::default'
-    chef.json = {}
+    chef.cookbooks_path = 'vendor/cookbooks'
+    chef.json = {
+      'run_list' => [
+        'recipe[dop_mysql::default]'
+      ]
+    }
   end
 end
