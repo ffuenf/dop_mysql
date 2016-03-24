@@ -41,6 +41,7 @@ end
 # grant all privileges to user on database
 mysql_database_user database_user do
   connection database_connection
+  database_name database
   host database_host
   privileges [:all]
   action :grant
