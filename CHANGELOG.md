@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_mysql.
 
+## 3.2.1 (July 21, 2016)
+
+* remove cookbook attribute in logrotate_app (@sheuser)
+
 ## 3.1.0 (February 18, 2016)
 
 * rewrite setting of encrypted databag attributes (compatibility to chef 12.7.2)

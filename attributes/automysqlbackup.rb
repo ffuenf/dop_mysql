@@ -21,4 +21,3 @@ default['automysqlbackup']['db_exclude'] = %w(
 
 default['automysqlbackup']['server']['bind_address'] = '127.0.0.1'
 default['automysqlbackup']['server']['port'] = 3_306
-default['automysqlbackup']['server_root_password'] = 'insecure'
