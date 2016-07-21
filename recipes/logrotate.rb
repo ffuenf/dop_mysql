@@ -4,7 +4,6 @@
 #
 
 logrotate_app 'mysql' do
-  cookbook 'logrotate'
   path '/var/log/mysql/*.log'
   frequency 'daily'
   rotate 2
