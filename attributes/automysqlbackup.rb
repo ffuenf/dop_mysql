@@ -13,11 +13,11 @@ default['automysqlbackup']['encrypt_password'] = 'insecure'
 default['automysqlbackup']['user'] = 'automysqlbackup'
 default['automysqlbackup']['group'] = 'automysqlbackup'
 default['automysqlbackup']['secure_backups'] = false
-default['automysqlbackup']['db_exclude'] = %w(
+default['automysqlbackup']['db_exclude'] = %w[
   information_schema
   performance_schema
   mysql
-)
+]
 
 default['automysqlbackup']['server']['bind_address'] = '127.0.0.1'
 default['automysqlbackup']['server']['port'] = 3_306
