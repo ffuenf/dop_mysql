@@ -21,12 +21,10 @@ end
 # Disable the default MySQL service
 # Needed due to the bug https://github.com/chef-cookbooks/mysql/issues/378
 case node['platform_family']
-when 'debian'
-  service 'mysql' do
-    action [:disable, :stop]
-  end
-when 'rhel', 'fedora'
-  # We do nothing for now
+  when 'debian'
+    service 'mysql' do
+      action [:disable, :stop]
+    end
 end
 
 mysql_config 'custom' do
