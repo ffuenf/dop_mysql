@@ -15,7 +15,7 @@ mysql_service 'default' do
   port node['mysql']['port']
   initial_root_password node['dop_mysql']['databag']['root']
   version node['mysql']['version']
-  action [:create, :start]
+  action %i[create, start]
 end
 
 # Disable the default MySQL service
@@ -23,7 +23,7 @@ end
 case node['platform_family']
 when 'debian'
   service 'mysql' do
-    action [:disable, :stop]
+    action %i[disable, stop]
   end
 end
 

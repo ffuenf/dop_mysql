@@ -9,11 +9,11 @@ issues_url 'https://github.com/ffuenf/dop_mysql/issues'
 source_url 'https://github.com/ffuenf/dop_mysql'
 chef_version '>= 12.5' if respond_to?(:chef_version)
 
-%w(debian ubuntu).each do |os|
+%w[debian ubuntu].each do |os|
   supports os
 end
 
-%w(
+%w[
   apt
   dop_base
   dotdeb
@@ -22,6 +22,6 @@ end
   automysqlbackup
   mysql2_chef_gem
   chef-sugar
-).each do |ressource|
+].each do |ressource|
   depends ressource
 end
